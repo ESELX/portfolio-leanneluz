@@ -1,5 +1,5 @@
 /*
-	Solid State by HTML5 UP
+	Prologue by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
@@ -8,16 +8,15 @@
 
 	var	$window = $(window),
 		$body = $('body'),
-		$header = $('#header'),
-		$banner = $('#banner');
+		$nav = $('#nav');
 
 	// Breakpoints.
 		breakpoints({
-			xlarge:	'(max-width: 1680px)',
-			large:	'(max-width: 1280px)',
-			medium:	'(max-width: 980px)',
-			small:	'(max-width: 736px)',
-			xsmall:	'(max-width: 480px)'
+			wide:      [ '961px',  '1880px' ],
+			normal:    [ '961px',  '1620px' ],
+			narrow:    [ '961px',  '1320px' ],
+			narrower:  [ '737px',  '960px'  ],
+			mobile:    [ null,     '736px'  ]
 		});
 
 	// Play initial animations on page load.
@@ -27,119 +26,98 @@
 			}, 100);
 		});
 
-	// Header.
-		if ($banner.length > 0
-		&&	$header.hasClass('alt')) {
+	// Nav.
+		var $nav_a = $nav.find('a');
 
-			$window.on('resize', function() { $window.trigger('scroll'); });
+		$nav_a
+			.addClass('scrolly')
+			.on('click', function(e) {
 
-			$banner.scrollex({
-				bottom:		$header.outerHeight(),
-				terminate:	function() { $header.removeClass('alt'); },
-				enter:		function() { $header.addClass('alt'); },
-				leave:		function() { $header.removeClass('alt'); }
-			});
+				var $this = $(this);
 
-		}
+				// External link? Bail.
+					if ($this.attr('href').charAt(0) != '#')
+						return;
 
-	// Menu.
-		var $menu = $('#menu');
+				// Prevent default.
+					e.preventDefault();
 
-		$menu._locked = false;
+				// Deactivate all links.
+					$nav_a.removeClass('active');
 
-		$menu._lock = function() {
-
-			if ($menu._locked)
-				return false;
-
-			$menu._locked = true;
-
-			window.setTimeout(function() {
-				$menu._locked = false;
-			}, 350);
-
-			return true;
-
-		};
-
-		$menu._show = function() {
-
-			if ($menu._lock())
-				$body.addClass('is-menu-visible');
-
-		};
-
-		$menu._hide = function() {
-
-			if ($menu._lock())
-				$body.removeClass('is-menu-visible');
-
-		};
-
-		$menu._toggle = function() {
-
-			if ($menu._lock())
-				$body.toggleClass('is-menu-visible');
-
-		};
-
-		$menu
-			.appendTo($body)
-			.on('click', function(event) {
-
-				event.stopPropagation();
-
-				// Hide.
-					$menu._hide();
+				// Activate link *and* lock it (so Scrollex doesn't try to activate other links as we're scrolling to this one's section).
+					$this
+						.addClass('active')
+						.addClass('active-locked');
 
 			})
-			.find('.inner')
-				.on('click', '.close', function(event) {
+			.each(function() {
 
-					event.preventDefault();
-					event.stopPropagation();
-					event.stopImmediatePropagation();
+				var	$this = $(this),
+					id = $this.attr('href'),
+					$section = $(id);
 
-					// Hide.
-						$menu._hide();
+				// No section for this link? Bail.
+					if ($section.length < 1)
+						return;
 
-				})
-				.on('click', function(event) {
-					event.stopPropagation();
-				})
-				.on('click', 'a', function(event) {
+				// Scrollex.
+					$section.scrollex({
+						mode: 'middle',
+						top: '-10vh',
+						bottom: '-10vh',
+						initialize: function() {
 
-					var href = $(this).attr('href');
+							// Deactivate section.
+								$section.addClass('inactive');
 
-					event.preventDefault();
-					event.stopPropagation();
+						},
+						enter: function() {
 
-					// Hide.
-						$menu._hide();
+							// Activate section.
+								$section.removeClass('inactive');
 
-					// Redirect.
-						window.setTimeout(function() {
-							window.location.href = href;
-						}, 350);
+							// No locked links? Deactivate all links and activate this section's one.
+								if ($nav_a.filter('.active-locked').length == 0) {
 
+									$nav_a.removeClass('active');
+									$this.addClass('active');
+
+								}
+
+							// Otherwise, if this section's link is the one that's locked, unlock it.
+								else if ($this.hasClass('active-locked'))
+									$this.removeClass('active-locked');
+
+						}
+					});
+
+			});
+
+	// Scrolly.
+		$('.scrolly').scrolly();
+
+	// Header (narrower + mobile).
+
+		// Toggle.
+			$(
+				'<div id="headerToggle">' +
+					'<a href="#header" class="toggle"></a>' +
+				'</div>'
+			)
+				.appendTo($body);
+
+		// Header.
+			$('#header')
+				.panel({
+					delay: 500,
+					hideOnClick: true,
+					hideOnSwipe: true,
+					resetScroll: true,
+					resetForms: true,
+					side: 'left',
+					target: $body,
+					visibleClass: 'header-visible'
 				});
-
-		$body
-			.on('click', 'a[href="#menu"]', function(event) {
-
-				event.stopPropagation();
-				event.preventDefault();
-
-				// Toggle.
-					$menu._toggle();
-
-			})
-			.on('keydown', function(event) {
-
-				// Hide on escape.
-					if (event.keyCode == 27)
-						$menu._hide();
-
-			});
 
 })(jQuery);
