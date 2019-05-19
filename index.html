@@ -34,6 +34,7 @@
 								<li><a href="#3d_modelation"><span class="icon fa-th">Modelação 3D</span></a></li>
 								<li><a href="#paiting"><span class="icon fa-th">Pintura</span></a></li>
 								<li><a href="#sculpture"><span class="icon fa-th">Escultura</span></a></li>
+								<li><a href="#video"><span class="icon fa-th">Vídeo</span></a></li>
 								<li><a href="#contact" id="contact-link"><span class="icon fa-envelope">Contacto</span></a></li>
 
 								<!--	<li><a href="#portfolio" id="portfolio-link"><span class="icon fa-th">Portfolio</span></a></li>-->
@@ -111,6 +112,8 @@
 
 							<br>
 
+
+
 							<p>Frofo é um divertido gelado de iogurte com sabor a morango.
 								Direcionado para o público infantil, alia ao seu fantástico sabor, um excelente
 								valor nutricional e muita diversão. Sem adição de açúcares, é preparado com
@@ -120,13 +123,13 @@
 							<div class="row">
 								<div class="col-4 col-12-mobile">
 									<article class="item">
-										<a href="#" class="image fit"><img src="images/frofro/Mupi.png" alt="" /></a>
+										<a class="image fit"><img class="myImg" onclick="imagePopup(this, 'Ipsum Feugiat')" src="images/frofro/Mupi.png" alt="" /></a>
 										<header>
 											<h3>Ipsum Feugiat</h3>
 										</header>
 									</article>
 									<article class="item">
-										<a href="#" class="image fit"><img src="images/frofro/Outdoor.png" alt="" /></a>
+										<a class="image fit"><img class="myImg" onclick="imagePopup(this, 'Rhoncus Semper')" src="images/frofro/Outdoor.png" alt="" /></a>
 										<header>
 											<h3>Rhoncus Semper</h3>
 										</header>
@@ -225,6 +228,13 @@
 					</ul>
 
 			</div>
+
+			<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
