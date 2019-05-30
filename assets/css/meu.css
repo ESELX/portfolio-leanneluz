@@ -1,0 +1,12 @@
+.image.avatar48 {
+  border-radius: 50em;
+  width: 100%;
+  height: auto;
+  background: #black;
+}
+
+.image.avatar48 img {
+    border-radius: 50em;
+    width: 100%;
+    height: auto;
+  }
