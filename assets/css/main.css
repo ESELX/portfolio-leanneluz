@@ -2070,8 +2070,8 @@ input, select, textarea {
 
 			#header .icons a {
 				color: #41484c;
-				-moz-transition: color 0.5s ease-in-out;
-				-webkit-transition: color 0.5s ease-in-out;
+				-moz-transition: color 0.35s ease-in-out;
+				-webkit-transition: color 0.35s ease-in-out;
 				-ms-transition: color 0.35s ease-in-out;
 				transition: color 0.35s ease-in-out;
 			}
@@ -2345,7 +2345,7 @@ input, select, textarea {
 					#nav ul li a span:before {
 						left: 100%;
 						margin-left: -1.25em;
-						line-height: 2.25em;
+						line-height: 0.5em;
 					}
 
 		/* Footer */
