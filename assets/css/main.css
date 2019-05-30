@@ -2032,7 +2032,7 @@ input, select, textarea {
 		-webkit-justify-content: space-between;
 		-ms-justify-content: space-between;
 		justify-content: space-between;
-		background: #000000 url("images/overlay.png");
+		background: #000000;
 		box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.1);
 		color: #fff;
 		height: 100%;
@@ -2040,7 +2040,7 @@ input, select, textarea {
 		overflow-y: auto;
 		position: fixed;
 		text-align: right;
-		top: 0;
+		top: 0px;
 		width: 375px;
 	}
 
@@ -2070,8 +2070,8 @@ input, select, textarea {
 
 			#header .icons a {
 				color: #41484c;
-				-moz-transition: color 0.35s ease-in-out;
-				-webkit-transition: color 0.35s ease-in-out;
+				-moz-transition: color 0.5s ease-in-out;
+				-webkit-transition: color 0.5s ease-in-out;
 				-ms-transition: color 0.35s ease-in-out;
 				transition: color 0.35s ease-in-out;
 			}
