@@ -1943,7 +1943,7 @@ input, select, textarea {
 	button,
 	.button {
 		position: relative;
-		display: inline-block;
+		display: inline;
 		border-radius: 0.35em;
 		color: #fff !important;
 		text-decoration: none;
@@ -2032,7 +2032,7 @@ input, select, textarea {
 		-webkit-justify-content: space-between;
 		-ms-justify-content: space-between;
 		justify-content: space-between;
-		background: #000000;
+		background: #000000 url("images/overlay.png");
 		box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.1);
 		color: #fff;
 		height: 100%;
@@ -2040,7 +2040,7 @@ input, select, textarea {
 		overflow-y: auto;
 		position: fixed;
 		text-align: right;
-		top: 0px;
+		top: 0;
 		width: 375px;
 	}
 
@@ -2345,7 +2345,7 @@ input, select, textarea {
 					#nav ul li a span:before {
 						left: 100%;
 						margin-left: -1.25em;
-						line-height: 0.5em;
+						line-height: 2.25em;
 					}
 
 		/* Footer */
