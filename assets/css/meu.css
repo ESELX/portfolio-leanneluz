@@ -1,13 +1,13 @@
 .image.avatar48 {
   border-radius: 50em;
-  width: 100%;
+  width: 90%;
   height: auto;
   background: #black;
 }
 
 .image.avatar48 img {
     border-radius: 50em;
-    width: 100%;
+    width: 90%;
     height: auto;
   }
 
@@ -15,4 +15,17 @@
 		font-weight: 300;
 		color: #666;
 		line-height: 0em;
+  }
+
+  #nav ul li a {
+    display: block;
+    padding: 0.1em 1.5em 0.1em 1.5em;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    outline: 0;
+    border: 0;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -ms-transition: none;
+    transition: none;
   }
