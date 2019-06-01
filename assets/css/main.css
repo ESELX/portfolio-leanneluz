@@ -239,6 +239,22 @@ input, select, textarea {
 
 		}
 
+		#title{
+			margin-top : 180px;
+		}
+
+		.top{padding:10px;}
+
+		@media screen and (max-width: 1320px) {
+			#design-txt {
+			margin-top:60px;
+			}
+			#title {
+			margin-top:0;
+			}
+
+		}
+
 		@media screen and (max-width: 960px) {
 
 			.container {
